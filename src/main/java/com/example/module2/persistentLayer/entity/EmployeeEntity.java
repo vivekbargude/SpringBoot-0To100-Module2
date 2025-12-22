@@ -14,7 +14,6 @@ import java.time.LocalDate;
 //Cant perform operations directly on the entities we need repositories for that purpose.
 
 
-
 @Entity
 @Getter
 @Setter
