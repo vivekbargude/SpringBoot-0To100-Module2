@@ -18,6 +18,10 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
 
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
-        return null;
+        if (body instanceof ApiResponse<?>) {
+            return body;
+        }
+
+        return new ApiResponse<>(body);
     }
 }
